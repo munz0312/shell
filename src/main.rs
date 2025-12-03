@@ -50,7 +50,7 @@ fn exec(tokens: Vec<String>) {
             let _ = Command::new(cmd)
                 .args(&tokens[1..])
                 .status()
-                .expect("Failed to execute command");
+                .map_err(|e| eprintln!("{}", e));
         }
     }
 }
